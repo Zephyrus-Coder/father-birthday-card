@@ -1,0 +1,216 @@
+/* 全局重置和基本设置 */
+body, html {
+    margin: 0; /* 清除默认外边距 */
+    padding: 0; /* 清除默认内边距 */
+    font-family: 'SimSun', 'KaiTi', 'Microsoft YaHei', sans-serif; /* 设置优先字体，兼顾宋体、楷体和微软雅黑 */
+    background-color: #fdf6e3; /* 温馨的米色背景 */
+    color: #553300; /* 深棕色文字，与背景协调 */
+    display: flex; /* 使用flex布局，方便居中 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    min-height: 100vh; /* 最小高度为视口高度，确保内容即使少也能居中 */
+    line-height: 1.8; /* 设置舒适的行高 */
+}
+
+/* 贺卡容器 */
+.card-container {
+    background-color: #fffaf0; /* 象牙白贺卡背景 */
+    border: 2px solid #e0c080; /* 淡金色边框 */
+    border-radius: 15px; /* 圆角边框 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 添加阴影，营造立体感 */
+    padding: 30px 40px; /* 内边距 */
+    max-width: 800px; /* 最大宽度 */
+    width: 90%; /* 响应式宽度 */
+    text-align: center; /* 内容居中对齐 */
+    margin: 20px; /* 外边距，防止贴边 */
+    position: relative; /* 为可能的内部绝对定位元素提供基准，比如星星如果限制在卡片内 */
+    z-index: 1; /* 确保贺卡内容在可能的背景星星之上，如果星星 z-index 为0或负数 */
+}
+
+/* 贺卡头部 */
+.card-header h1 {
+    color: #c00; /* 暗红色标题 */
+    font-size: 2.8em; /* 标题字号 */
+    font-weight: bold; /* 粗体 */
+    margin-bottom: 20px; /* 底部外边距 */
+    font-family: 'KaiTi', 'SimSun', serif; /* 优先使用楷体或宋体 */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* 文字轻微阴影 */
+}
+
+/* 祝福语区域 */
+.greeting-section h2 {
+    color: #800000; /* 深红色副标题 */
+    font-size: 1.8em; /* 字号 */
+    margin-top: 0; /* 顶部外边距 */
+    margin-bottom: 15px; /* 底部外边距 */
+    text-align: left; /* 将h2标题也设置为左对齐 */
+}
+
+.greeting-section p {
+    font-size: 1.1em; /* 段落字号 */
+    margin-bottom: 15px; /* 段落间距 */
+    text-align: left; /* 段落左对齐，更易阅读 */
+    text-indent: 2em; /* 首行缩进 */
+}
+
+/* 新增：用于"愿您："和其后祝福列表的样式 */
+.greeting-section .wish-block {
+    margin-bottom: 15px; /* 保持与普通段落一致的底部间距 */
+    /* 这个块本身不需要首行缩进，由内部元素控制 */
+}
+
+.greeting-section .wish-intro {
+    /* "愿您：" 这一行 */
+    text-indent: 2em; /* 继承或设定首行缩进 */
+    margin-top: 0; /* 清除可能存在的顶部外边距 */
+    margin-bottom: 0.3em; /* 与下方列表的间距，设小一些使其更紧凑 */
+    font-size: 1.1em; /* 确保字体大小一致 */
+    text-align: left; /* 确保左对齐 */
+}
+
+.greeting-section .wish-list {
+    /* 包含具体祝福语的列表容器 */
+    /* 通过左内边距实现对齐"愿您："之后的效果 */
+    /* "愿您："本身缩进2em，假设"愿您： "文本宽度约为3.7em (需要微调) */
+    padding-left: 5.7em; /* 2em (基础缩进) + 3.7em (文本宽度) */
+}
+
+.greeting-section .wish-list .wish-item {
+    /* 单条祝福语 */
+    text-indent: 0; /* 清除继承的首行缩进，因为已经通过父容器的padding-left对齐 */
+    margin-top: 0; /* 清除顶部外边距 */
+    margin-bottom: 0.3em; /* 祝福语行间距 */
+    font-size: 1.1em; /* 确保字体大小一致 */
+    text-align: left; /* 确保左对齐 */
+}
+
+.greeting-section .wish-list .wish-item:last-child {
+    margin-bottom: 0; /* 列表最后一项的底部无额外间距 */
+}
+
+/* 媒体（照片轮播）区域 */
+.media-section {
+    margin: 30px 0; /* 上下外边距 */
+}
+
+.slideshow-container {
+    position: relative; /* 相对定位，为轮播按钮定位提供基准 */
+    max-width: 600px; /* 轮播容器最大宽度, 包括padding和border */
+    margin: auto; /* 居中 */
+    overflow: hidden; /* 隐藏超出部分 */
+    border-radius: 10px; /* 圆角 */
+    border: 1px solid #eee; /* 图片轮播区域的浅灰色细边框 */
+    padding: 10px; /* 统一的内边距，作为图片与边框的间距 */
+    background-color: #fffaf0; /* 间距区域的背景色，与贺卡背景一致 */
+    height: 420px; /* (最大图片高度400px + 上下padding 2*10px) */
+    display: flex; /* 使用flex布局来居中图片 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.slide {
+    /* .slide 现在主要是JS控制显示/隐藏的容器，其内的img由父级.slideshow-container的flex属性居中 */
+    /* 如果需要.slide占据全部flex空间，可以设置 width:100%; height:100%; display:flex; justify-content:center; align-items:center; */
+    /* 但更简单的是让img直接成为.slideshow-container的flex子项的行为模拟，我们调整img的max-width/height */
+    display: none; /* 默认隐藏所有幻灯片, JS控制 */
+    width: 100%; /* 确保.slide占据slideshow-container的内容区域宽度 */
+    height: 100%; /* 确保.slide占据slideshow-container的内容区域高度 (400px) */
+    text-align: center; /* 原始的居中方式，flex会覆盖 */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.slide img {
+    /* width: 100%; */ /* 移除，让图片根据自身宽高比和max约束来定尺寸 */
+    /* height: auto; */ /* 移除 */
+    max-width: 100%;   /* 最大宽度为.slide的宽度 (slideshow-container内容区宽度) */
+    max-height: 100%;  /* 最大高度为.slide的高度 (slideshow-container内容区高度, 即400px) */
+    object-fit: contain; /* 确保图片完整显示，并保持宽高比 */
+    border-radius: 10px; /* 图片圆角 */
+    /* background-color: #fffaf0; */ /* 移除，不再让图片自身填充背景 */
+    display: block; /* 避免图片底部产生额外空白 */
+}
+
+/* 淡入淡出效果 */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} /* 起始透明度 */
+    to {opacity: 1} /* 结束透明度 */
+}
+
+/* 落款区域 */
+.signature-section {
+    margin-top: 30px; /* 顶部外边距 */
+    padding-top: 20px; /* 顶部内边距 */
+    border-top: 1px dashed #e0c080; /* 上方虚线分隔 */
+    font-style: italic; /* 斜体 */
+    color: #885500; /* 稍深的棕色 */
+}
+
+.signature-section p {
+    font-size: 1em; /* 字号 */
+    margin-bottom: 5px; /* 段落间距 */
+    text-align: right; /* 落款右对齐 */
+}
+
+/* 音频播放器可以简单隐藏，因为我们希望自动播放 */
+/* 如果需要显示控件，可以移除 display: none */
+#backgroundMusic {
+    /* display: none; */ /* 隐藏默认播放器控件 */
+    width: 80%;
+    margin-top: 20px;
+}
+
+/* 响应式设计：小屏幕适配 */
+@media (max-width: 600px) {
+    .card-container {
+        padding: 20px; /* 减小内边距 */
+        margin: 10px;
+    }
+
+    .card-header h1 {
+        font-size: 2em; /* 减小标题字号 */
+    }
+
+    .greeting-section h2 {
+        font-size: 1.5em; /* 减小副标题字号 */
+    }
+
+    .greeting-section p {
+        font-size: 1em; /* 减小段落字号 */
+    }
+
+    .slideshow-container {
+        max-width: 100%; /* 轮播容器宽度适应屏幕 */
+    }
+}
+
+/*
+// 已注释掉：闪烁星星效果的样式
+.sparkle {
+    position: fixed; 
+    background-color: #FFD700; 
+    border-radius: 50%; 
+    opacity: 0; 
+    animation: sparkleAnimation ease-in-out infinite; 
+    pointer-events: none; 
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5); 
+    z-index: 99; 
+}
+
+@keyframes sparkleAnimation {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1; 
+        transform: scale(1.2); 
+    }
+}
+*/ 
