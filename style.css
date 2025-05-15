@@ -187,6 +187,9 @@ body, html {
 
     .slideshow-container {
         max-width: 100%; /* 轮播容器宽度适应屏幕 */
+        height: auto; /* 允许高度根据内容调整 */
+        max-height: 50vh; /* 设置最大高度为视口高度的50% */
+        /* min-height: 200px; */ /* 可以考虑添加一个最小高度，防止内容过少时塌陷 */
     }
 }
 
