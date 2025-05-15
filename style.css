@@ -50,7 +50,7 @@ body, html {
     font-size: 1.1em; /* 段落字号 */
     margin-bottom: 15px; /* 段落间距 */
     text-align: left; /* 段落左对齐，更易阅读 */
-    text-indent: 2em; /* 首行缩进 */
+    /* text-indent: 2em; */ /* 移除首行缩进 */
 }
 
 /* 新增：用于"愿您："和其后祝福列表的样式 */
@@ -61,7 +61,7 @@ body, html {
 
 .greeting-section .wish-intro {
     /* "愿您：" 这一行 */
-    text-indent: 2em; /* 继承或设定首行缩进 */
+    /* text-indent: 2em; */ /* 移除首行缩进 */
     margin-top: 0; /* 清除可能存在的顶部外边距 */
     margin-bottom: 0.3em; /* 与下方列表的间距，设小一些使其更紧凑 */
     font-size: 1.1em; /* 确保字体大小一致 */
@@ -70,9 +70,7 @@ body, html {
 
 .greeting-section .wish-list {
     /* 包含具体祝福语的列表容器 */
-    /* 通过左内边距实现对齐"愿您："之后的效果 */
-    /* "愿您："本身缩进2em，假设"愿您： "文本宽度约为3.7em (需要微调) */
-    padding-left: 5.7em; /* 2em (基础缩进) + 3.7em (文本宽度) */
+    padding-left: 0; /* 修改：移除原有的复杂内边距，实现左对齐 */
 }
 
 .greeting-section .wish-list .wish-item {
@@ -174,7 +172,7 @@ body, html {
     }
 
     .card-header h1 {
-        font-size: 2em; /* 减小标题字号 */
+        font-size: 1.7em; /* 进一步减小标题字号以适应单行 */
     }
 
     .greeting-section h2 {
