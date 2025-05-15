@@ -183,6 +183,12 @@ body, html {
         font-size: 1em; /* 减小段落字号 */
     }
 
+    /* 新增：确保手机端"愿您"块的字体大小与其他段落一致 */
+    .greeting-section .wish-intro,
+    .greeting-section .wish-list .wish-item {
+        font-size: 1em; /* 统一手机端字号为1em */
+    }
+
     .slideshow-container {
         max-width: 100%; /* 轮播容器宽度适应屏幕 */
         height: auto; /* 允许高度根据内容调整 */
