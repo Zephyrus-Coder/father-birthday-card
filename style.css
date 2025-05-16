@@ -172,7 +172,7 @@ body, html {
     }
 
     .card-header h1 {
-        font-size: 1.7em; /* 进一步减小标题字号以适应单行 */
+        font-size: 1.6em; /* 再次减小标题字号以适应单行显示 */
     }
 
     .greeting-section h2 {
